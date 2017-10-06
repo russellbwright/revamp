@@ -1,0 +1,1 @@
+INSERT INTO users (username, userid) VALUES ($1, $2) RETURNING username, authid;

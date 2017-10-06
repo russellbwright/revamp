@@ -4,6 +4,20 @@
 
     
 
-    <div ng-repeat="user in users">{{user.name}} - {{user.companyname}}</div>
-   
-</div>
+    <!-- <div ng-repeat="user in users">{{user.name}} - {{user.company}}</div> -->
+
+
+   </div>
+
+   <h1>HOME</h1>
+   <!-- check if user has an auth id (meaning its the user and not the error message) -->
+   <!-- if no authid, display error, else display user info -->
+   <h1 ng-if="!user.authid">{{user}}</h1>
+   <div ng-if="user.authid">
+       <h1>{{user.authid}}</h1>
+       <h1>{{user.username}}</h1>
+   </div>
+   <!-- Go to Login View -->
+   <a class="transition" ui-sref="login" ng-if="!user.authid"><span>login</span></a>
+   <!-- Logout your user, if not user, button won't display -->
+   <a class="transition" href="/auth/logout" ng-if="user.authid"><span>logout!</span></a>
